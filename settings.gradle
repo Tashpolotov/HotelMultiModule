@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "HotelMultiModule"
+include ':app'
+include ':hotel:hotel_data'
+include ':hotel:hotel_domain'
+include ':hotel:hotel_presentation'
+include ':room_room_data'
+include ':room:room_data'
+include ':room:room_domain'
+include ':room:room_presentation'
+include ':common:common_utils'

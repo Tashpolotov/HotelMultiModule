@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/hotelsFragment">
+
+    <fragment
+        android:id="@+id/hotelsFragment"
+        android:name="com.example.hotel_presentation.HotelsFragment"
+        android:label="HotelsFragment" >
+        <action
+            android:id="@+id/action_hotelsFragment_to_roomFragment"
+            app:destination="@id/roomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomFragment"
+        android:name="com.example.room_presentation.RoomFragment"
+        android:label="RoomFragment" />
+    <fragment
+        android:id="@+id/hilt_HotelsFragment"
+        android:name="com.example.hotel_presentation.Hilt_HotelsFragment"
+        android:label="Hilt_HotelsFragment" >
+        <action
+            android:id="@+id/action_hilt_HotelsFragment_to_hilt_RoomFragment"
+            app:destination="@id/hilt_RoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hilt_RoomFragment"
+        android:name="com.example.room_presentation.Hilt_RoomFragment"
+        android:label="Hilt_RoomFragment" />
+</navigation>

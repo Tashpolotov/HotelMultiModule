@@ -1,0 +1,59 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.example.room_room_data'
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(":hotel:hotel_domain")
+    implementation project(":common:common_utils")
+
+    implementation 'javax.inject:javax.inject:1'
+    implementation Deps.core
+    implementation Deps.appcompat
+    implementation Deps.material
+    implementation Deps.constraintlayout
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.5'
+    testImplementation TestImplementation.junit
+    androidTestImplementation AndroidTestImplementation.textExtJunit
+    androidTestImplementation AndroidTestImplementation.testEspresso
+
+    //retrofit
+    implementation Retrofit.retrofit
+    implementation Retrofit.json
+
+    //okkhtp
+    implementation Okhttp.interceptor
+    implementation Okhttp.okhttp
+
+    //Coroutines
+    implementation Coroutines.coroutines
+}

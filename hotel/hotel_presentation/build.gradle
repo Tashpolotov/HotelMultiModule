@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'com.example.hotel_presentation'
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+    }
+}
+
+dependencies {
+
+    implementation project(":common:common_utils")
+    implementation project(":hotel:hotel_domain")
+    implementation project(":hotel:hotel_data")
+
+    implementation Deps.core
+    implementation Deps.appcompat
+    implementation Deps.material
+    implementation Deps.constraintlayout
+    testImplementation TestImplementation.junit
+    androidTestImplementation AndroidTestImplementation.textExtJunit
+    androidTestImplementation AndroidTestImplementation.testEspresso
+
+    //hilt
+    implementation DaggerHilt.android
+    kapt(DaggerHilt.compiler)
+//glide
+    implementation Glide.glide
+    implementation AnnotationProcessor.annotationProcessor
+
+    //navigation
+    implementation Navigation.navigationFragment
+    implementation Navigation.navigationKtx
+
+    //dotsIndic
+    implementation DotsIndicator.dotsindicator
+    implementation DotsIndicator.circleindicator
+
+    //vp2
+    implementation Viewpager2.viewpager2
+    //Coroutines
+    implementation Coroutines.coroutines
+
+    //Viewbindingpropertydelegate
+    implementation Viewbindingpropertydelegate.viewbindingpropertydelegate
+}

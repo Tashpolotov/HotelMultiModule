@@ -1,0 +1,96 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'com.example.hotelmultimodule'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.hotelmultimodule"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
+
+dependencies {
+    implementation project(":room_room_data")
+
+    implementation project(":hotel:hotel_domain")
+    implementation project(":hotel:hotel_data")
+    implementation project(":hotel:hotel_presentation")
+
+    implementation project(":room:room_presentation")
+    implementation project(":room:room_data")
+    implementation project(":room:room_domain")
+
+
+    implementation project(":common:common_utils")
+
+
+    implementation Deps.core
+    implementation Deps.appcompat
+    implementation Deps.material
+    implementation Deps.constraintlayout
+    testImplementation TestImplementation.junit
+    androidTestImplementation AndroidTestImplementation.textExtJunit
+    androidTestImplementation AndroidTestImplementation.testEspresso
+
+    //hilt
+    implementation DaggerHilt.android
+    kapt(DaggerHilt.compiler)
+
+    //retrofit
+    implementation Retrofit.retrofit
+    implementation Retrofit.json
+
+    //glide
+    implementation Glide.glide
+    implementation AnnotationProcessor.annotationProcessor
+
+    //navigation
+    implementation Navigation.navigationFragment
+    implementation Navigation.navigationKtx
+
+    //dotsIndic
+    implementation DotsIndicator.dotsindicator
+    implementation DotsIndicator.circleindicator
+
+    //vp2
+    implementation Viewpager2.viewpager2
+
+    //okkhtp
+    implementation Okhttp.interceptor
+    implementation Okhttp.okhttp
+
+    //Coroutines
+    implementation Coroutines.coroutines
+
+    //Viewbindingpropertydelegate
+    implementation Viewbindingpropertydelegate.viewbindingpropertydelegate
+
+    implementation LottieAnimations.lottieAnimations
+
+}
